@@ -1,6 +1,4 @@
-#include <iostream>
-
-using namespace std;
+#include "hw1.h"
 
 int main(int argc, char** args)
 {
