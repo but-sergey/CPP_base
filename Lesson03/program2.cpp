@@ -10,6 +10,8 @@ int main(int argc, char** args)
 
     if(a > 10)
         cout << "a > 10" << endl;
+    else if(a == 10)
+        cout << "a = 10" << endl;
     else
         cout << "a < 10" << endl;
 
