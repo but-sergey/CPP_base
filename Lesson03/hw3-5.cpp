@@ -20,18 +20,26 @@ int main(int argc, char** args)
     
     do{
         userNum = ChangeUser(userNum);
-
-        do{
-            cout << "USER " << userNum << ": How much of sticks you take? >>";
-            cin >> takeCount;
-        } while ((takeCount < 1) || (takeCount > 3));
+        if(userNum == 1)
+        {
+            do{
+                cout << "USER: How much of sticks you take? >>";
+                cin >> takeCount;
+            } while ((takeCount < 1) || (takeCount > 3));
+        }
+        else
+        {
+            takeCount = sticksCount - ((sticksCount - 1) / 4 * 4 + 1);
+            if(takeCount == 0) takeCount = 1;
+            cout << "COMPUTER: I take " << takeCount << " sticks!" << endl;
+        }
 
         sticksCount -= takeCount;
         cout << "Sticks count: " << sticksCount << endl;
     } while (sticksCount > 1);
 
     int winner = (sticksCount == 1) ? userNum : ChangeUser(userNum);
-    cout << endl << "User " << winner << " win!!!" << endl << endl;
+    cout << endl << ((winner == 1) ? "USER" : "COMPUTER") << " win!!!" << endl << endl;
 
     return 0;
 }
