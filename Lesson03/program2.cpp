@@ -7,6 +7,9 @@ int main(int argc, char** args)
     cout << "Enter num ";
     int a;
     cin >> a;
-    cout << a << endl;
+    
+    if(a > 10)
+        cout << "a > 10" << endl;
+
     return 0;
 }
