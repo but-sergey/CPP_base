@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 
 using namespace std;
 
@@ -9,12 +10,12 @@ int main(int argc, char** args)
 
     try
     {
-        if(a == 0) throw "Divison by zero!\n";
+        if(a == 0) throw std::runtime_error("Division by zero!");
         cout << 4 / a << endl;
     }
-    catch(char const* e)
+    catch(std::runtime_error& e)
     {
-        cout << e;
+        cout << e.what();
     }
     
 
