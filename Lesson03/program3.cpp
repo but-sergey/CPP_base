@@ -11,13 +11,16 @@ enum constant_set
 
 int main(int argc, char** args)
 {
-    int a;
+    char a;
     cout << "Enter num: ";
     cin >> a;
     switch(a)
     {
     case csConstant1:
         cout << "Constant 1" << endl;
+        break;
+    case 'y':
+        cout << "YES" << endl;
         break;
     default:
         cout << "No num" << endl;
