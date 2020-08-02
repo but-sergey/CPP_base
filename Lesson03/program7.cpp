@@ -6,10 +6,17 @@ int main(int argc, char** args)
 {
     int a;
     cin >> a;
-    
-    if(a == 0) throw "Divison by zero!\n";
 
-    cout << 4 / a;
+    try
+    {
+        if(a == 0) throw "Divison by zero!\n";
+        cout << 4 / a << endl;
+    }
+    catch(char const* e)
+    {
+        cout << e;
+    }
+    
 
     return 0;
 }
