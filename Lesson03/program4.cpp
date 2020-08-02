@@ -13,5 +13,7 @@ int main(int argc, char** args)
         cout << --a << endl;
     } while (a >= 1);
 
+    cout << a++ + ++a << endl;
+
     return 0;
 }
