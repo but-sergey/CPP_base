@@ -10,9 +10,9 @@ int main(int argc, char** args)
     cout << "Enter num 2 ";
     cin >> b;
 
-    if((a > 10) && (b == 5))
+    if((a <= 10) || (b >= 5))
     {
-        cout << "a > 10 and b = 5" << endl;
+        cout << "a <= 10 and b >= 5" << endl;
     }
 
     return 0;
