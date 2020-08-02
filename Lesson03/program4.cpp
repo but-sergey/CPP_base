@@ -10,7 +10,7 @@ int main(int argc, char** args)
 
     do
     {
-        cout << a-- << endl;
+        cout << --a << endl;
     } while (a >= 1);
 
     return 0;
