@@ -2,9 +2,13 @@
 
 using std::endl;
 
-int main(int argc, char** args)
+namespace t
 {
     int a = 1;
+}
+
+int main(int argc, char** args)
+{
     int b = 2;
     int c = a + b;
 
