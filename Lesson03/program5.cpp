@@ -4,13 +4,24 @@ using namespace std;
 
 int main(int argc, char** args)
 {
-    int a = 0;
+    int a = 20;
+    int b = 0;
 
-    while(a < 8)
+    while(b!=a)
     {
-        if(++a == 4) break;
-        cout << a << endl;
+        cout << "Enter num: ";
+        cin >> b;
+
+        if(b < a)
+        {
+            cout << "Gimme more!" << endl;
+        }
+        else if (b > a)
+        {
+            cout << "Gimme less!" << endl;
+        }
     }
+    cout << "Guess!" << endl;
 
     return 0;
 }
