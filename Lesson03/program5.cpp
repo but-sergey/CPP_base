@@ -8,7 +8,7 @@ int main(int argc, char** args)
 
     while(a < 8)
     {
-        if(a++ == 7) continue;
+        if(++a == 4) break;
         cout << a << endl;
     }
 
