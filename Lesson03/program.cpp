@@ -10,7 +10,7 @@ namespace t
 int main(int argc, char** args)
 {
     int b = 2;
-    int c = a + b;
+    int c = t::a + b;
 
     std::cout << c << endl;
 
