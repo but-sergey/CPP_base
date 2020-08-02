@@ -6,7 +6,7 @@ int main(int argc, char** args)
     int b = 2;
     int c = a + b;
 
-    cout << c << endl;
+    std::cout << c << std::endl;
 
     return 0;
 }
