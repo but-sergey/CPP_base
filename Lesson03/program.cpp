@@ -1,6 +1,6 @@
 #include <iostream>
 
-using std::endl;
+using namespace std;
 
 namespace t
 {
@@ -12,7 +12,7 @@ int main(int argc, char** args)
     int b = 2;
     int c = t::a + b;
 
-    std::cout << c << endl;
+    cout << c << endl;
 
     return 0;
 }
