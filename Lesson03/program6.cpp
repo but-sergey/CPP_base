@@ -6,9 +6,9 @@ int main(int argc, char** args)
 {
     int ar[10];
 
-    for(int i = 0; i < 10; i++)
+    for(int i, j = 0; i < 10; i++, j+=3)
     {
-        ar[i] = i;
+        ar[i] = j;
         cout << ar[i] << endl;
     }
 
