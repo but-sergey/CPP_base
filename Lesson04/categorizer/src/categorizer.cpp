@@ -55,8 +55,21 @@ int main(int argc, char** args)
             width += alphabet[sym] * c;
         }
         cout << "Width = " << width << endl;
-    
+ 
+        digit_b = static_cast<unsigned int>(f.tellg()) + 1;
+        do{
+            f.read(&sym, 1);
+        } while(sym != 0x0A);
+        digit_e = static_cast<unsigned int>(f.tellg()) - 2;
 
+        for(j = digit_e, c = 1; j >= digit_b; j--, c *= 10)
+        {
+            f.seekg(j);
+            f.read(&sym, 1);
+            height += alphabet[sym] * c;
+        }
+        cout << "Height = " << height << endl;
+ 
         f.close();
     }
 
