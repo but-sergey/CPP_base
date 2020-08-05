@@ -8,6 +8,7 @@ int alphabet[256];
 int main(int argc, char** args)
 {
     fstream f;
+    ofstream out("histogram.txt");
     int width, height;
     width = height = 0;
     char PGM_hdr1[2];
@@ -69,8 +70,42 @@ int main(int argc, char** args)
             height += alphabet[sym] * c;
         }
         cout << "Height = " << height << endl;
+
+        for(int d = 0; d < 256; ++d)
+            histogram[d] = 0;
+
+        f.seekg(digit_e + 6);
+
+        for(int d = 0; d < (width * height); ++d)
+        {
+            if(f.eof())
+                break;
+
+            f.read(&sym, 1);
+            histogram[static_cast<unsigned char>(sym)] += 1;
+        }
+
+        for(j = 0; j < 256; j++)
+        {
+            cout << "[" << j << "]";
+            for(c = 0; c < histogram[j]; c++)
+                cout << "|";
+            cout << endl;
+        }
  
         f.close();
+
+        out << "File " << args[i] << endl;
+        out << "Width: " << width << "\t Height: " << height << endl;
+        for(j = 0; j < 256; j++)
+        {
+            out << "[" << j << "] ";
+            for(c = 0; c < histogram[j]; c++)
+                out << "|";
+            out << endl;
+        }
+        out << "End of file " << args[i] << endl << endl;
+        out.close();
     }
 
     return 0;
