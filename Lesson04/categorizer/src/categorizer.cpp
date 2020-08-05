@@ -3,10 +3,13 @@
 using namespace std;
 
 unsigned int histogram[256];
+int alphabet[256];
 
 int main(int argc, char** args)
 {
     fstream f;
+    int width, height;
+    width = height = 0;
     char PGM_hdr1[2];
 
     if(argc == 1)
@@ -30,7 +33,29 @@ int main(int argc, char** args)
             continue;
         cout << "PGM header detected" << endl;
 
-        f.seekg((long int)f.tellg() + 1);
+        f.seekg(static_cast<unsigned int>(f.tellg()) + 1);
+        
+        unsigned int digit_b = static_cast<unsigned int>(f.tellg());
+        char sym;
+        do{
+            f.read(&sym, 1);
+        } while(sym != 0x20);
+        unsigned int digit_e = static_cast<unsigned int>(f.tellg()) - 2;
+
+        int j = 0;
+        int c = 1;
+
+        for(int d = '0'; d <= '9'; d++, j++)
+            alphabet[d] = j;
+
+        for(j = digit_e; j >= digit_b; j--, c *= 10)
+        {
+            f.seekg(j);
+            f.read(&sym, 1);
+            width += alphabet[sym] * c;
+        }
+        cout << "Width = " << width << endl;
+    
 
         f.close();
     }
